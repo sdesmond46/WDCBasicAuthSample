@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http.Controllers;
 using System.Net.Http;
+using System.Configuration;
 
 namespace WDCBasicAuthSample.Filters
 {
@@ -57,7 +58,8 @@ namespace WDCBasicAuthSample.Filters
                 return;
             }
 
-            using (var context = new PrincipalContext(System.DirectoryServices.AccountManagement.ContextType.Domain))
+            string domain = ConfigurationManager.AppSettings["Domain"].ToString();
+            using (var context = new PrincipalContext(System.DirectoryServices.AccountManagement.ContextType.Domain, domain))
             {
                 if (!context.ValidateCredentials(identity.Name, identity.Password))
                 {

@@ -44,6 +44,9 @@ $(document).ready(function() {
         }
     }
 
+    $("#username").val(tableau.username);
+    $("#password").val(tableau.password);
+
 	$('#login').submit(function( event ) {
         event.preventDefault();
         var username = $("#username").val();
