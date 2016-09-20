@@ -3,16 +3,30 @@ window._api = new Api("http://localhost:30977"); // ALWAYS use https in a produc
 (function(){
     var myConnector = tableau.makeConnector();
 
-    myConnector.init = function(initCallback) {
-        initCallback();
+    myConnector.init = function (initCallback) {
+        if (tableau.phase == tableau.phaseEnum.gatherDataPhase) {
+            window._api.setCredentials(tableau.username, tableau.password);
+            window._api.testCredentials(function (err) {
+                if (err) {
+                    tableau.abortForAuth(err.toString());
+                } else {
+                    initCallback();
+                }
+            });
+        } else {
+            initCallback();
+        }
     };
 
     myConnector.getSchema = function(schemaCallback) {
-
+        window._api.getSchema(schemaCallback);
     };
 
     myConnector.getData = function(table, doneCallback) {
-
+        window._api.getData(function (data) {
+            table.appendRows(data);
+            doneCallback();
+        });
     };
 
     tableau.registerConnector(myConnector);
@@ -39,6 +53,7 @@ $(document).ready(function() {
 
         tableau.username = username;
         tableau.password = password;
+        tableau.authType = tableau.authTypeEnum.basic;
 
         changeStatusMessage("Testing credentials...", "green");
         window._api.testCredentials(function(err) {

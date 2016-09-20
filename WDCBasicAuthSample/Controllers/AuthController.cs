@@ -12,7 +12,6 @@ namespace WDCBasicAuthSample.Controllers
     public class AuthController : ApiController
     {
         [HttpGet]
-        [BasicAuthorizationFilter]
         public string TestAuth()
         {
             return "OK";

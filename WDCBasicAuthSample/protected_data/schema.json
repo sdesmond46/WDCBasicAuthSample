@@ -1,0 +1,49 @@
+﻿[
+    {
+        "id": "questions",
+        "alias": "Jeopardy Questions",
+        "columns": [
+            {
+                "id": "category",
+                "alias": "Category",
+                "dataType": "string"
+            },
+            {
+                "id": "air_date",
+                "alias": "Air Date",
+                "dataType": "string"
+            },
+            {
+                "id": "question",
+                "alias": "Question",
+                "dataType": "string"
+            },
+            {
+                "id": "value",
+                "alias": "Value",
+                "dataType": "string"
+            },
+            {
+                "id": "is_final_jeopardy",
+                "alias": "Is Final Jeopardy",
+                "dataType": "bool"
+            },
+            {
+                "id": "answer",
+                "alias": "Answer",
+                "dataType": "string"
+            },
+            {
+                "id": "round",
+                "alias": "Round",
+                "dataType": "string"
+            },
+            {
+                "id": "show_number",
+                "alias": "Show Number",
+                "dataType": "int"
+            }
+
+        ]
+    }
+]
