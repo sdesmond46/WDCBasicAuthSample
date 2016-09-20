@@ -4,7 +4,7 @@ window._api = new Api("http://localhost:30977"); // ALWAYS use https in a produc
     var myConnector = tableau.makeConnector();
 
     myConnector.init = function(initCallback) {
-
+        initCallback();
     };
 
     myConnector.getSchema = function(schemaCallback) {

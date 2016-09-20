@@ -13,20 +13,25 @@
 </head>
 <body>
     <div class="container">
-        <h2>Basic Auth Sample</h2>
-        <form id="login">
-            <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="username" class="form-control" id="username" placeholder="username (what you sign in to your machine with)">
+        <div class="page-header">
+            <h1>Basic Auth Sample</h1>
             </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" placeholder="password">
+        <div class="panel panel-default">
+            <div class="panel-heading">Please Sign In Using Your Active Directory Credentials</div>
+            <div class="panel-body">
+                <form id="login">
+                    <div class="form-group">
+                        <label for="username">Username:</label>
+                        <input type="username" class="form-control" id="username" placeholder="username (what you sign in to your machine with)">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <input type="password" class="form-control" id="password" placeholder="password">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block" id="submitButton">Submit</button>
+                </form>
             </div>
-            <button type="submit" class="btn btn-default" id="submitButton">Submit</button>
-        </form>
-        <div>
-            <p id="statusMessage" style=""></p>
+            <div class="panel-footer" id="statusMessage"></div>
         </div>
     </div>
 </body>
