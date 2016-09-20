@@ -1,4 +1,4 @@
-window._api = new Api("http://localhost:30977"); // ALWAYS use https in a production environment
+window._api = new Api("http://sdesmond5:8080"); // ALWAYS use https in a production environment
 
 (function(){
     var myConnector = tableau.makeConnector();
