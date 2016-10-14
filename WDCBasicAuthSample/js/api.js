@@ -15,7 +15,7 @@ Api.prototype.testCredentials = function(cb) {
 	}).done(function(data, textStatus, jqXHR) {
 		cb();
 	}).fail(function(jqXHR, textStatus, errorThrown) {
-		cb(jqXHR.responseText);
+	    cb(jqXHR.responseText || textStatus);
 	});
 }
 

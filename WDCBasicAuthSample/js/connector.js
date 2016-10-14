@@ -1,4 +1,4 @@
-window._api = new Api("http://sdesmond5:8080"); // ALWAYS use https in a production environment
+window._api = new Api(location.origin); // ALWAYS use https in a production environment
 
 (function(){
     var myConnector = tableau.makeConnector();
@@ -47,7 +47,7 @@ $(document).ready(function() {
     $("#username").val(tableau.username);
     $("#password").val(tableau.password);
 
-	$('#login').submit(function( event ) {
+    $('#login').submit(function( event ) {
         event.preventDefault();
         var username = $("#username").val();
         var password = $("#password").val();
@@ -61,7 +61,7 @@ $(document).ready(function() {
         changeStatusMessage("Testing credentials...", "green");
         window._api.testCredentials(function(err) {
             if (!err) {
-				changeStatusMessage("Valid Credentials", "black");
+                changeStatusMessage("Valid Credentials", "black");
                 tableau.connectionName = "Basic Auth Sample for " + tableau.username;
                 tableau.submit();
             } else {
